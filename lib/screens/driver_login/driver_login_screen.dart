@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:taxi/screens/driver_orders/driver_orders_screen.dart';
 
 class DriverLoginScreen extends StatefulWidget {
   @override
@@ -62,7 +63,9 @@ class DriverLoginScreenState extends State {
                     textColor: Colors.black54,
                     padding:
                         EdgeInsets.symmetric(vertical: 10.0, horizontal: 42.0),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => DriverOrdersScreen()));
+                    },
                     child: Text(
                       "Войти",
                       style: TextStyle(
