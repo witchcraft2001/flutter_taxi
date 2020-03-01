@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:taxi/models/intercity_order.dart';
 import 'package:taxi/models/order.dart';
 import 'package:intl/intl.dart';
+import 'package:taxi/screens/driver_order_detail/driver_order_detail_screen.dart';
 
 class DriverOrdersScreen extends StatefulWidget {
   @override
@@ -101,7 +102,12 @@ class DriverOrdersScreenState extends State {
                 itemCount: orders != null ? orders.length : 0,
                 itemBuilder: (context, index) {
                   return InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(context, PageRouteBuilder(
+                        opaque: false,
+                        pageBuilder: (BuildContext context, _, __) => DriverOrderDetailScreen(orders[index])
+                      ));
+                    },
                     child: OrderListItem(orders[index]),
                   );
                 }),
